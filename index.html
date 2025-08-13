@@ -21,11 +21,11 @@
     overflow-x:hidden;
   }
 
-  /* ======= Fullscreen Security Background (SVG + blur) ======= */
+  /* ======= Fullscreen Security Background ======= */
   .bg{
     position:fixed; inset:0; z-index:-2;
+    pointer-events:none; /* Fix: không chặn click */
     background:
-      /* vignette */
       radial-gradient(1200px 600px at 10% -10%, rgba(30,61,89,.28), transparent 60%),
       radial-gradient(900px 500px at 110% 0%, rgba(255,110,64,.18), transparent 60%),
       linear-gradient(180deg,#0f172a 0%, #111827 60%, #0b1220 100%);
@@ -33,7 +33,7 @@
   .bg::before{
     content:"";
     position:absolute; inset:0; z-index:-1;
-    /* Hex grid + shield pattern as inline SVG (no external images) */
+    pointer-events:none; /* Fix: không chặn click */
     background-image:
       url('data:image/svg+xml;utf8,\
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">\
@@ -50,12 +50,10 @@
             </filter>\
           </defs>\
           <rect width="1600" height="900" fill="url(%23hex)"/>\
-          <!-- Shields (subtle) -->\
           <g fill="%23c9e3ff" opacity="0.09" filter="url(%23soft)">\
             <path d="M400 260c60 0 120-32 160-64 40 32 100 64 160 64 0 200-110 290-160 310-50-20-160-110-160-310z"/>\
             <path d="M1150 160c50 0 100-28 135-56 35 28 85 56 135 56 0 160-95 240-135 258-40-18-135-98-135-258z"/>\
           </g>\
-          <!-- soft light streaks -->\
           <rect x="0" y="0" width="1600" height="900" fill="url(%23g)"/>\
         </svg>');
     background-size:cover;
@@ -90,7 +88,7 @@
   }
   .avatar{
     width:148px; height:148px; border-radius:50%;
-    border:4px solid rgba(255,255,255,.85); object-fit:cover; background:#c7d2fe;
+    border:4px solid rgba(255,255,255,.85); object-fit:cover;
     box-shadow:0 6px 18px rgba(0,0,0,.25);
   }
   .name{margin:16px 0 2px; font-weight:700; font-size:22px}
@@ -143,16 +141,15 @@
 </style>
 </head>
 <body>
-  <!-- Fullscreen security-styled background -->
+  <!-- Background -->
   <div class="bg" aria-hidden="true"></div>
 
   <div class="page">
     <div class="card">
-      <!-- Language flags -->
+      <!-- Flags -->
       <div class="topbar">
-        <button class="flagbtn" onclick="setLanguage('en')" id="btn-en" title="English" aria-label="Switch to English">
-          <!-- UK flag (Union Jack) -->
-          <svg viewBox="0 0 60 40" width="30" height="20" aria-hidden="true">
+        <button class="flagbtn" onclick="setLanguage('en')" id="btn-en" title="English">
+          <svg viewBox="0 0 60 40" width="30" height="20">
             <clipPath id="u"><rect width="60" height="40" rx="2" ry="2"/></clipPath>
             <g clip-path="url(#u)">
               <path fill="#012169" d="M0 0h60v40H0z"/>
@@ -163,9 +160,8 @@
             </g>
           </svg>
         </button>
-        <button class="flagbtn" onclick="setLanguage('vi')" id="btn-vi" title="Tiếng Việt" aria-label="Chuyển sang tiếng Việt">
-          <!-- Vietnam flag -->
-          <svg viewBox="0 0 60 40" width="30" height="20" aria-hidden="true">
+        <button class="flagbtn" onclick="setLanguage('vi')" id="btn-vi" title="Tiếng Việt">
+          <svg viewBox="0 0 60 40" width="30" height="20">
             <rect width="60" height="40" fill="#DA251D" rx="2" ry="2"/>
             <polygon points="30,8 33.8,22 20,13.5 40,13.5 26.2,22" fill="#FFDD00"/>
           </svg>
@@ -174,31 +170,24 @@
 
       <!-- Left -->
       <aside class="left">
-        <!-- Dùng ảnh thật của bạn: avatar.jpg -->
         <img class="avatar" id="avatar" src="avatar.jpg" alt="Avatar" />
         <h1 class="name" id="name">Tran Kim Dinh</h1>
         <p class="role" id="title">Security Management Expert</p>
-
         <h3 class="sec-title" id="personal-title">Personal Information</h3>
         <ul class="list" id="personal-info"></ul>
-
         <h3 class="sec-title" id="skills-title">Key Skills</h3>
         <ul class="list" id="skills-list"></ul>
-
-        <a id="download-link" class="download" href="20250310_CV An ninh_Trần Kim Định.pdf" download>Download CV</a>
+        <a id="download-link" class="download" href="Tran_Kim_Dinh_CV_EN.pdf" download>Download CV</a>
       </aside>
 
       <!-- Right -->
       <main class="right">
         <h2 class="h2" id="experience-title">Work Experience</h2>
         <ul class="bullets" id="experience-list"></ul>
-
         <h2 class="h2" id="education-title">Education</h2>
         <ul class="bullets" id="education-list"></ul>
-
         <h2 class="h2" id="achievement-title">Achievements</h2>
         <ul class="bullets" id="achievement-list"></ul>
-
         <h2 class="h2" id="objective-title">Career Objectives</h2>
         <ul class="bullets" id="objective-list"></ul>
       </main>
@@ -206,7 +195,6 @@
   </div>
 
 <script>
-/* ====== Content EN + VI ====== */
 const content = {
   en: {
     name: "Tran Kim Dinh",
@@ -258,7 +246,7 @@ const content = {
       "Become a top security manager in major corporations"
     ],
     downloadText: "Download CV",
-    downloadFile: "20250310_CV An ninh_Trần Kim Định.pdf"
+    downloadFile: "Tran_Kim_Dinh_CV_EN.pdf"
   },
   vi: {
     name: "Trần Kim Định",
@@ -310,7 +298,7 @@ const content = {
       "Trở thành nhà quản lý an ninh hàng đầu tại các tập đoàn lớn"
     ],
     downloadText: "Tải CV",
-    downloadFile: "20250310_CV An ninh_Trần Kim Định.pdf"
+    downloadFile: "Tran_Kim_Dinh_CV_VI.pdf"
   }
 };
 
@@ -326,7 +314,6 @@ function setList(id, items){
 
 function setLanguage(lang){
   const c = content[lang];
-  document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
   document.getElementById("name").textContent = c.name;
   document.getElementById("title").textContent = c.title;
   document.getElementById("personal-title").textContent = c.personalTitle;
@@ -344,10 +331,6 @@ function setLanguage(lang){
   const a = document.getElementById("download-link");
   a.textContent = c.downloadText;
   a.href = c.downloadFile;
-
-  // nhỏ: bo viền nút đang chọn
-  document.getElementById('btn-en').style.outline = lang==='en' ? '2px solid #2563eb' : 'none';
-  document.getElementById('btn-vi').style.outline = lang==='vi' ? '2px solid #2563eb' : 'none';
 }
 
 setLanguage('en');
