@@ -24,7 +24,7 @@
   /* ======= Fullscreen Security Background ======= */
   .bg{
     position:fixed; inset:0; z-index:-2;
-    pointer-events:none; /* Fix: không chặn click */
+    pointer-events:none;
     background:
       radial-gradient(1200px 600px at 10% -10%, rgba(30,61,89,.28), transparent 60%),
       radial-gradient(900px 500px at 110% 0%, rgba(255,110,64,.18), transparent 60%),
@@ -33,12 +33,12 @@
   .bg::before{
     content:"";
     position:absolute; inset:0; z-index:-1;
-    pointer-events:none; /* Fix: không chặn click */
+    pointer-events:none;
     background-image:
       url('data:image/svg+xml;utf8,\
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">\
           <defs>\
-            <pattern id="hex" width="60" height="52" patternUnits="userSpaceOnUse" patternTransform="scale(1)">\
+            <pattern id="hex" width="60" height="52" patternUnits="userSpaceOnUse">\
               <path d="M30 2 L58 17 L58 35 L30 50 L2 35 L2 17 Z" fill="none" stroke="%23a3b7cc" stroke-width="1" opacity="0.18"/>\
             </pattern>\
             <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">\
@@ -67,9 +67,9 @@
     max-width:1060px;
     margin:48px auto;
     padding:0 16px;
+    position:relative;
   }
   .card{
-    position:relative;
     display:grid;
     grid-template-columns:320px 1fr;
     background:var(--card);
@@ -77,7 +77,26 @@
     box-shadow:0 16px 40px rgba(2,6,23,.35);
     overflow:hidden;
     border:1px solid rgba(226,232,240,.7);
+    position:relative;
+    z-index:1;
   }
+
+  /* ======= Top-right flag buttons ======= */
+  .topbar{
+    position:absolute;
+    top:10px;
+    right:12px;
+    display:flex;
+    gap:10px;
+    z-index:9999;
+    pointer-events:auto;
+  }
+  .flagbtn{
+    width:36px; height:24px; border:1px solid #d1d5db; border-radius:4px;
+    background:#fff; cursor:pointer; padding:0;
+    box-shadow:0 1px 2px rgba(16,24,40,.06);
+  }
+  .flagbtn:active{transform:translateY(1px)}
 
   /* ======= Left ======= */
   .left{
@@ -115,18 +134,7 @@
   .bullets{margin:10px 0 18px 0; padding-left:20px}
   .bullets li{margin:8px 0; line-height:1.5}
 
-  /* ======= Top-right flag buttons ======= */
-  .topbar{
-    position:absolute; top:10px; right:12px; display:flex; gap:10px;
-  }
-  .flagbtn{
-    width:36px; height:24px; border:1px solid #d1d5db; border-radius:4px;
-    background:#fff; cursor:pointer; padding:0;
-    box-shadow:0 1px 2px rgba(16,24,40,.06);
-  }
-  .flagbtn:active{transform:translateY(1px)}
-
-  /* ======= Responsive / Print ======= */
+  /* ======= Responsive ======= */
   @media (max-width:940px){
     .card{grid-template-columns:1fr}
     .left{padding-bottom:16px}
