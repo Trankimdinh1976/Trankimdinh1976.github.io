@@ -172,4 +172,121 @@ const content = {
       "Military Service (1994–2016): Officer in charge of operational command in Military Zone 5 & 7.",
       "Security Director – CT Group, Chairman & CEO of STEEL STAR Security Service JSC (2023–2025)",
       "Security Advisor – Thien Thanh Group (2023–2025)",
-      "Security Director – Van Phuc Group (2022–
+      "Security Director – Van Phuc Group (2022–2023)",
+      "Head of Security – Dat Xanh Group (2022)",
+      "Head of Security – Vinhomes Grand Park (2020–2022)",
+      "Head of Security – Vinhomes Golden River (2019)",
+      "Security Team Leader – Vinhomes Central Park (2018–2019)",
+      "Security Inspector – Vincom Security Company (2016–2018)"
+    ],
+    educationTitle: "Education",
+    education: [
+      "Bachelor of Military Science – Commando Officer School (Regular University)",
+      "Major: Commando Unit Command",
+      "Classification: Good"
+    ],
+    achievementTitle: "Achievements",
+    achievements: [
+      "Annual commendations from VinGroup",
+      "Warrior title – CT Group",
+      "Multiple professional security & firefighting certificates",
+      "Trusted with security planning & execution for major projects/events"
+    ],
+    objectiveTitle: "Career Objectives",
+    objectives: [
+      "Long-term commitment in a professional environment",
+      "Hold senior management roles in internal security",
+      "Become a top security manager in major corporations"
+    ],
+    downloadText: "Download CV",
+    downloadFile: "Tran_Kim_Dinh_CV_EN.pdf"
+  },
+  vi: {
+    name: "Trần Kim Định",
+    title: "Chuyên gia Quản lý An ninh",
+    personalTitle: "Thông tin cá nhân",
+    personalInfo: [
+      "Ngày sinh: 27/08/1976",
+      "Địa chỉ: 506 Trường Chinh, phường Nhơn Hưng, thị xã An Nhơn, tỉnh Bình Định, Việt Nam",
+      "Điện thoại: 0938.466245",
+      "Email: Trankimdinh1976@gmail.com"
+    ],
+    skillsTitle: "Kỹ năng chính",
+    skills: [
+      "Quản lý an ninh nội bộ & quản trị rủi ro",
+      "Thanh tra & điều tra an ninh",
+      "Quản lý & huấn luyện nhân sự",
+      "Sử dụng Microsoft Office (Word, Excel, PowerPoint)",
+      "Liên hệ, phối hợp với cơ quan chức năng"
+    ],
+    experienceTitle: "Kinh nghiệm làm việc",
+    experience: [
+      "Quân ngũ (1994–2016): Sĩ quan phụ trách chỉ huy tác chiến tại Quân khu 5 & 7.",
+      "Giám đốc An ninh – Tập đoàn CT, Chủ tịch & CEO Công ty CP Dịch vụ Bảo vệ STEEL STAR (2023–2025)",
+      "Cố vấn An ninh – Tập đoàn Thiên Thanh (2023–2025)",
+      "Giám đốc An ninh – Tập đoàn Vạn Phúc (2022–2023)",
+      "Trưởng bộ phận An ninh – Tập đoàn Đất Xanh (2022)",
+      "Trưởng bộ phận An ninh – Vinhomes Grand Park (2020–2022)",
+      "Trưởng bộ phận An ninh – Vinhomes Golden River (2019)",
+      "Đội trưởng An ninh – Vinhomes Central Park (2018–2019)",
+      "Thanh tra An ninh – Công ty Bảo vệ Vincom (2016–2018)"
+    ],
+    educationTitle: "Trình độ học vấn",
+    education: [
+      "Cử nhân Khoa học Quân sự – Trường Sĩ quan Đặc công (Hệ Đại học Chính quy)",
+      "Chuyên ngành: Chỉ huy đơn vị đặc công",
+      "Xếp loại: Khá"
+    ],
+    achievementTitle: "Thành tích",
+    achievements: [
+      "Bằng khen hàng năm từ Tập đoàn VinGroup",
+      "Danh hiệu “Chiến binh” – Tập đoàn CT",
+      "Nhiều chứng chỉ chuyên môn về an ninh và phòng cháy chữa cháy",
+      "Được tin tưởng giao lập kế hoạch & triển khai an ninh cho các dự án/sự kiện lớn"
+    ],
+    objectiveTitle: "Mục tiêu nghề nghiệp",
+    objectives: [
+      "Gắn bó lâu dài trong môi trường chuyên nghiệp",
+      "Đảm nhận các vị trí quản lý cấp cao trong lĩnh vực an ninh nội bộ",
+      "Trở thành nhà quản lý an ninh hàng đầu tại các tập đoàn lớn"
+    ],
+    downloadText: "Tải CV",
+    downloadFile: "Tran_Kim_Dinh_CV_VI.pdf"
+  }
+};
+
+function setList(id, items){
+  const ul = document.getElementById(id);
+  ul.innerHTML = "";
+  items.forEach(t=>{
+    const li=document.createElement("li");
+    li.textContent=t;
+    ul.appendChild(li);
+  });
+}
+
+function setLanguage(lang){
+  const c = content[lang];
+  document.getElementById("name").textContent = c.name;
+  document.getElementById("title").textContent = c.title;
+  document.getElementById("personal-title").textContent = c.personalTitle;
+  setList("personal-info", c.personalInfo);
+  document.getElementById("skills-title").textContent = c.skillsTitle;
+  setList("skills-list", c.skills);
+  document.getElementById("experience-title").textContent = c.experienceTitle;
+  setList("experience-list", c.experience);
+  document.getElementById("education-title").textContent = c.educationTitle;
+  setList("education-list", c.education);
+  document.getElementById("achievement-title").textContent = c.achievementTitle;
+  setList("achievement-list", c.achievements);
+  document.getElementById("objective-title").textContent = c.objectiveTitle;
+  setList("objective-list", c.objectives);
+  const a = document.getElementById("download-link");
+  a.textContent = c.downloadText;
+  a.href = c.downloadFile;
+}
+
+setLanguage('en');
+</script>
+</body>
+</html>
