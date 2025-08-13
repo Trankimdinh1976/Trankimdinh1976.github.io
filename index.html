@@ -1,284 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tran Kim Dinh - CV</title>
+<meta name="color-scheme" content="light dark" />
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background: #f4f4f4;
-        color: #333;
-    }
-    .container {
-        max-width: 1000px;
-        margin: 20px auto;
-        background: white;
-        display: flex;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        position: relative;
-    }
-    .sidebar {
-        background: #1e3d59;
-        color: white;
-        padding: 20px;
-        width: 30%;
-        box-sizing: border-box;
-        text-align: center;
-    }
-    .sidebar img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 4px solid white;
-        object-fit: cover;
-        margin-bottom: 15px;
-    }
-    .sidebar h1 {
-        margin: 10px 0 5px;
-        font-size: 22px;
-    }
-    .sidebar p {
-        margin: 0 0 20px;
-        font-style: italic;
-    }
-    .sidebar h2 {
-        font-size: 18px;
-        margin-top: 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.3);
-        padding-bottom: 5px;
-    }
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: 14px;
-    }
-    .sidebar ul li {
-        margin-bottom: 8px;
-    }
-    .main {
-        padding: 20px;
-        width: 70%;
-        box-sizing: border-box;
-    }
-    .main h2 {
-        color: #1e3d59;
-        margin-top: 0;
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 5px;
-    }
-    .lang-switch {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: flex;
-        gap: 10px;
-    }
-    .lang-switch img {
-        width: 30px;
-        height: 20px;
-        cursor: pointer;
-        border: 1px solid #ccc;
-    }
-    .download-btn {
-        display: inline-block;
-        background: #ff6e40;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-top: 15px;
-    }
-    .download-btn:hover {
-        background: #ff3d00;
-    }
+  /* ====== Global + Background ====== */
+  :root{
+    --brand:#1e3d59;
+    --accent:#ff6e40;
+    --ink:#333;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --line:#e5e7eb;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(30,61,89,.18), transparent 60%),
+      radial-gradient(900px 500px at 110% 0%, rgba(255,110,64,.15), transparent 60%),
+      linear-gradient(180deg,#f7fafc 0%, #eef2f7 100%);
+  }
+  a{color:inherit}
+
+  /* ====== Layout Card ====== */
+  .page{
+    max-width: 1060px;
+    margin: 48px auto;
+    padding: 0 16px;
+  }
+  .card{
+    position:relative;
+    display:grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+    background:var(--card);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(16,24,40,.12);
+    overflow:hidden;
+    border:1px solid #e6e8ef;
+  }
+
+  /* ====== Left (Sidebar) ====== */
+  .left{
+    background: linear-gradient(180deg, var(--brand) 0%, #214664 100%);
+    color:#fff;
+    padding: 28px 22px 26px;
+  }
+  .avatar-wrap{
+    display:flex; align-items:center; justify-content:center; margin-top:4px;
+  }
+  .avatar{
+    width:148px; height:148px; border-radius:50%;
+    border:4px solid rgba(255,255,255,.85); object-fit:cover; background:#c7d2fe;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+  }
+  .name{margin:16px 0 2px; text-align:center; font-weight:700; font-size:22px}
+  .role{margin:0 0 14px; text-align:center; font-style:italic; opacity:.95}
+
+  .sec-title{
+    margin:18px 0 8px; font-size:15px; font-weight:800; letter-spacing:.3px;
+    border-bottom:1px solid rgba(255,255,255,.25); padding-bottom:6px;
+  }
+  .list{list-style:none; padding:0; margin:8px 0; font-size:13.5px}
+  .list li{margin:8px 0; line-height:1.45}
+  .muted{opacity:.9}
+
+  /* ====== Right (Main) ====== */
+  .right{padding:24px}
+  .h2{
+    color:var(--brand); margin:12px 0 8px; font-size:22px; font-weight:800;
+    border-bottom:2px solid var(--line); padding-bottom:6px;
+  }
+  .bullets{margin:10px 0 18px 0; padding-left:20px}
+  .bullets li{margin:8px 0; line-height:1.5}
+
+  /* ====== Top Controls ====== */
+  .topbar{
+    position:absolute; top:10px; right:12px; display:flex; gap:10px; align-items:center;
+  }
+  .flagbtn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:36px; height:24px; border:1px solid #d1d5db; border-radius:4px;
+    background:#fff; cursor:pointer; padding:0;
+    box-shadow:0 1px 2px rgba(16,24,40,.06);
+  }
+  .flagbtn:active{transform:translateY(1px)}
+  .download{
+    margin-top:8px; display:inline-block; background:var(--accent); color:#fff;
+    border:none; text-decoration:none; font-weight:600; padding:10px 18px; border-radius:8px;
+    box-shadow:0 6px 16px rgba(255,110,64,.35);
+  }
+  .download:hover{filter:brightness(.95)}
+  .note{color:var(--muted); font-size:12.5px; margin-top:10px}
+
+  /* ====== Responsive ====== */
+  @media (max-width:940px){
+    .card{grid-template-columns:1fr}
+    .left{padding-bottom:16px}
+    .topbar{position:static; justify-content:flex-end; padding:14px 14px 0}
+  }
+
+  /* ====== Print (nice PDF) ====== */
+  @media print{
+    body{background:#fff}
+    .page{margin:0}
+    .download,.topbar{display:none}
+    .card{box-shadow:none; border:none}
+  }
 </style>
 </head>
 <body>
+  <div class="page">
+    <div class="card" role="article" aria-label="CV Card">
 
-<div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <img src="avatar.jpg" alt="Avatar">
-        <h1 id="name">Tran Kim Dinh</h1>
-        <p id="title">Security Management Expert</p>
-        
-        <h2 id="personal-title">Personal Information</h2>
-        <ul id="personal-info"></ul>
+      <!-- Top-right flags + (optional) extra actions -->
+      <div class="topbar" aria-label="Language Switch">
+        <button class="flagbtn" title="English" aria-label="Switch to English" onclick="setLanguage('en')" id="btn-en">
+          <!-- UK flag (Union Jack) - simplified SVG -->
+          <svg viewBox="0 0 60 40" width="30" height="20" aria-hidden="true">
+            <clipPath id="u"><rect width="60" height="40" rx="2" ry="2"/></clipPath>
+            <g clip-path="url(#u)">
+              <path fill="#012169" d="M0 0h60v40H0z"/>
+              <path fill="#FFF" d="M0 0l60 40M60 0L0 40" stroke="#FFF" stroke-width="8"/>
+              <path d="M0 0l60 40M60 0L0 40" stroke="#C8102E" stroke-width="4"/>
+              <path fill="#FFF" d="M25 0h10v40H25zM0 15h60v10H0z"/>
+              <path fill="#C8102E" d="M27 0h6v40h-6zM0 17h60v6H0z"/>
+            </g>
+          </svg>
+        </button>
+        <button class="flagbtn" title="Tiếng Việt" aria-label="Chuyển sang tiếng Việt" onclick="setLanguage('vi')" id="btn-vi">
+          <!-- Vietnam flag -->
+          <svg viewBox="0 0 60 40" width="30" height="20" aria-hidden="true">
+            <rect width="60" height="40" fill="#DA251D" rx="2" ry="2"/>
+            <polygon points="30,8 33.8,22 20,13.5 40,13.5 26.2,22" fill="#FFDD00"/>
+          </svg>
+        </button>
+      </div>
 
-        <h2 id="skills-title">Key Skills</h2>
-        <ul id="skills-list"></ul>
-    </div>
-
-    <!-- Main content -->
-    <div class="main">
-        <div class="lang-switch">
-            <img src="flag_en.png" alt="English" onclick="setLanguage('en')">
-            <img src="flag_vi.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
+      <!-- Left column -->
+      <aside class="left">
+        <div class="avatar-wrap">
+          <!-- Inline placeholder avatar (replace src with your avatar.jpg if muốn) -->
+          <img class="avatar" id="avatar"
+               src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><rect width='100%25' height='100%25' fill='%23e5e7eb'/><circle cx='150' cy='110' r='70' fill='%2399a2ff'/><rect x='65' y='190' width='170' height='80' rx='40' fill='%239ab3c9'/><text x='150' y='122' text-anchor='middle' font-size='56' font-family='Arial' fill='white'>TD</text></svg>"
+               alt="Avatar" />
         </div>
+        <h1 class="name" id="name">Tran Kim Dinh</h1>
+        <p class="role" id="title">Security Management Expert</p>
 
-        <h2 id="experience-title">Work Experience</h2>
-        <ul id="experience-list"></ul>
+        <h3 class="sec-title" id="personal-title">Personal Information</h3>
+        <ul class="list" id="personal-info"></ul>
 
-        <h2 id="education-title">Education</h2>
-        <ul id="education-list"></ul>
+        <h3 class="sec-title" id="skills-title">Key Skills</h3>
+        <ul class="list" id="skills-list"></ul>
 
-        <h2 id="achievement-title">Achievements</h2>
-        <ul id="achievement-list"></ul>
+        <a id="download-link" class="download" href="Tran_Kim_Dinh_CV_EN.pdf" download>Download CV</a>
+        <div class="note" id="download-note">Tip: switch language to download the matching PDF.</div>
+      </aside>
 
-        <h2 id="objective-title">Career Objectives</h2>
-        <ul id="objective-list"></ul>
+      <!-- Right column -->
+      <main class="right">
+        <h2 class="h2" id="experience-title">Work Experience</h2>
+        <ul class="bullets" id="experience-list"></ul>
 
-        <a id="download-link" class="download-btn" href="Tran_Kim_Dinh_CV_EN.pdf" download>Download CV</a>
+        <h2 class="h2" id="education-title">Education</h2>
+        <ul class="bullets" id="education-list"></ul>
+
+        <h2 class="h2" id="achievement-title">Achievements</h2>
+        <ul class="bullets" id="achievement-list"></ul>
+
+        <h2 class="h2" id="objective-title">Career Objectives</h2>
+        <ul class="bullets" id="objective-list"></ul>
+      </main>
     </div>
-</div>
+  </div>
 
 <script>
-const content = {
+  // ====== CV Content (EN + VI) ======
+  const content = {
     en: {
-        name: "Tran Kim Dinh",
-        title: "Security Management Expert",
-        personalTitle: "Personal Information",
-        personalInfo: [
-            "Date of Birth: August 27, 1976",
-            "Address: 506 Truong Chinh, Nhon Hung Ward, An Nhon Town, Binh Dinh Province, Vietnam",
-            "Phone: 0938.466245",
-            "Email: Trankimdinh1976@gmail.com"
-        ],
-        skillsTitle: "Key Skills",
-        skills: [
-            "Internal security & risk management",
-            "Security inspections & investigations",
-            "Personnel management & training",
-            "Microsoft Office (Word, Excel, PowerPoint)",
-            "Liaison with governmental authorities"
-        ],
-        experienceTitle: "Work Experience",
-        experience: [
-            "Military Service (1994–2016): Officer in charge of operational command in Military Zone 5 & 7.",
-            "Security Director – CT Group, Chairman & CEO of STEEL STAR Security Service JSC (2023–2025)",
-            "Security Advisor – Thien Thanh Group (2023–2025)",
-            "Security Director – Van Phuc Group (2022–2023)",
-            "Head of Security – Dat Xanh Group (2022)",
-            "Head of Security – Vinhomes Grand Park (2020–2022)",
-            "Head of Security – Vinhomes Golden River (2019)",
-            "Security Team Leader – Vinhomes Central Park (2018–2019)",
-            "Security Inspector – Vincom Security Company (2016–2018)"
-        ],
-        educationTitle: "Education",
-        education: [
-            "Bachelor of Military Science – Commando Officer School (Regular University)",
-            "Major: Commando Unit Command",
-            "Classification: Good"
-        ],
-        achievementTitle: "Achievements",
-        achievements: [
-            "Annual commendations from VinGroup",
-            "Warrior title – CT Group",
-            "Multiple professional security & firefighting certificates",
-            "Trusted with security planning & execution for major projects/events"
-        ],
-        objectiveTitle: "Career Objectives",
-        objectives: [
-            "Long-term commitment in a professional environment",
-            "Hold senior management roles in internal security",
-            "Become a top security manager in major corporations"
-        ],
-        downloadText: "Download CV",
-        downloadFile: "Tran_Kim_Dinh_CV_EN.pdf"
+      name: "Tran Kim Dinh",
+      title: "Security Management Expert",
+      personalTitle: "Personal Information",
+      personalInfo: [
+        "Date of Birth: August 27, 1976",
+        "Address: 506 Truong Chinh, Nhon Hung Ward, An Nhon Town, Binh Dinh Province, Vietnam",
+        "Phone: 0938.466245",
+        "Email: Trankimdinh1976@gmail.com"
+      ],
+      skillsTitle: "Key Skills",
+      skills: [
+        "Internal security & risk management",
+        "Security inspections & investigations",
+        "Personnel management & training",
+        "Microsoft Office (Word, Excel, PowerPoint)",
+        "Liaison with governmental authorities"
+      ],
+      experienceTitle: "Work Experience",
+      experience: [
+        "Military Service (1994–2016): Officer in charge of operational command in Military Zone 5 & 7.",
+        "Security Director – CT Group, Chairman & CEO of STEEL STAR Security Service JSC (2023–2025)",
+        "Security Advisor – Thien Thanh Group (2023–2025)",
+        "Security Director – Van Phuc Group (2022–2023)",
+        "Head of Security – Dat Xanh Group (2022)",
+        "Head of Security – Vinhomes Grand Park (2020–2022)",
+        "Head of Security – Vinhomes Golden River (2019)",
+        "Security Team Leader – Vinhomes Central Park (2018–2019)",
+        "Security Inspector – Vincom Security Company (2016–2018)"
+      ],
+      educationTitle: "Education",
+      education: [
+        "Bachelor of Military Science – Commando Officer School (Regular University)",
+        "Major: Commando Unit Command",
+        "Classification: Good"
+      ],
+      achievementTitle: "Achievements",
+      achievements: [
+        "Annual commendations from VinGroup",
+        "Warrior title – CT Group",
+        "Multiple professional security & firefighting certificates",
+        "Trusted with security planning & execution for major projects/events"
+      ],
+      objectiveTitle: "Career Objectives",
+      objectives: [
+        "Long-term commitment in a professional environment",
+        "Hold senior management roles in internal security",
+        "Become a top security manager in major corporations"
+      ],
+      downloadText: "Download CV",
+      downloadNote: "Tip: switch language to download the matching PDF.",
+      downloadFile: "Tran_Kim_Dinh_CV_EN.pdf"
     },
     vi: {
-        name: "Trần Kim Định",
-        title: "Chuyên gia Quản lý An ninh",
-        personalTitle: "Thông tin cá nhân",
-        personalInfo: [
-            "Ngày sinh: 27/08/1976",
-            "Địa chỉ: 506 Trường Chinh, phường Nhơn Hưng, thị xã An Nhơn, tỉnh Bình Định, Việt Nam",
-            "Điện thoại: 0938.466245",
-            "Email: Trankimdinh1976@gmail.com"
-        ],
-        skillsTitle: "Kỹ năng chính",
-        skills: [
-            "Quản lý an ninh nội bộ & quản trị rủi ro",
-            "Thanh tra & điều tra an ninh",
-            "Quản lý & huấn luyện nhân sự",
-            "Sử dụng Microsoft Office (Word, Excel, PowerPoint)",
-            "Liên hệ, phối hợp với cơ quan chức năng"
-        ],
-        experienceTitle: "Kinh nghiệm làm việc",
-        experience: [
-            "Quân ngũ (1994–2016): Sĩ quan phụ trách chỉ huy tác chiến tại Quân khu 5 & 7.",
-            "Giám đốc An ninh – Tập đoàn CT, Chủ tịch & CEO Công ty CP Dịch vụ Bảo vệ STEEL STAR (2023–2025)",
-            "Cố vấn An ninh – Tập đoàn Thiên Thanh (2023–2025)",
-            "Giám đốc An ninh – Tập đoàn Vạn Phúc (2022–2023)",
-            "Trưởng bộ phận An ninh – Tập đoàn Đất Xanh (2022)",
-            "Trưởng bộ phận An ninh – Vinhomes Grand Park (2020–2022)",
-            "Trưởng bộ phận An ninh – Vinhomes Golden River (2019)",
-            "Đội trưởng An ninh – Vinhomes Central Park (2018–2019)",
-            "Thanh tra An ninh – Công ty Bảo vệ Vincom (2016–2018)"
-        ],
-        educationTitle: "Trình độ học vấn",
-        education: [
-            "Cử nhân Khoa học Quân sự – Trường Sĩ quan Đặc công (Hệ Đại học Chính quy)",
-            "Chuyên ngành: Chỉ huy đơn vị đặc công",
-            "Xếp loại: Khá"
-        ],
-        achievementTitle: "Thành tích",
-        achievements: [
-            "Bằng khen hàng năm từ Tập đoàn VinGroup",
-            "Danh hiệu “Chiến binh” – Tập đoàn CT",
-            "Nhiều chứng chỉ chuyên môn về an ninh và phòng cháy chữa cháy",
-            "Được tin tưởng giao lập kế hoạch & triển khai an ninh cho các dự án/sự kiện lớn"
-        ],
-        objectiveTitle: "Mục tiêu nghề nghiệp",
-        objectives: [
-            "Gắn bó lâu dài trong môi trường chuyên nghiệp",
-            "Đảm nhận các vị trí quản lý cấp cao trong lĩnh vực an ninh nội bộ",
-            "Trở thành nhà quản lý an ninh hàng đầu tại các tập đoàn lớn"
-        ],
-        downloadText: "Tải CV",
-        downloadFile: "Tran_Kim_Dinh_CV_VI.pdf"
+      name: "Trần Kim Định",
+      title: "Chuyên gia Quản lý An ninh",
+      personalTitle: "Thông tin cá nhân",
+      personalInfo: [
+        "Ngày sinh: 27/08/1976",
+        "Địa chỉ: 506 Trường Chinh, phường Nhơn Hưng, thị xã An Nhơn, tỉnh Bình Định, Việt Nam",
+        "Điện thoại: 0938.466245",
+        "Email: Trankimdinh1976@gmail.com"
+      ],
+      skillsTitle: "Kỹ năng chính",
+      skills: [
+        "Quản lý an ninh nội bộ & quản trị rủi ro",
+        "Thanh tra & điều tra an ninh",
+        "Quản lý & huấn luyện nhân sự",
+        "Sử dụng Microsoft Office (Word, Excel, PowerPoint)",
+        "Liên hệ, phối hợp với cơ quan chức năng"
+      ],
+      experienceTitle: "Kinh nghiệm làm việc",
+      experience: [
+        "Quân ngũ (1994–2016): Sĩ quan phụ trách chỉ huy tác chiến tại Quân khu 5 & 7.",
+        "Giám đốc An ninh – Tập đoàn CT, Chủ tịch & CEO Công ty CP Dịch vụ Bảo vệ STEEL STAR (2023–2025)",
+        "Cố vấn An ninh – Tập đoàn Thiên Thanh (2023–2025)",
+        "Giám đốc An ninh – Tập đoàn Vạn Phúc (2022–2023)",
+        "Trưởng bộ phận An ninh – Tập đoàn Đất Xanh (2022)",
+        "Trưởng bộ phận An ninh – Vinhomes Grand Park (2020–2022)",
+        "Trưởng bộ phận An ninh – Vinhomes Golden River (2019)",
+        "Đội trưởng An ninh – Vinhomes Central Park (2018–2019)",
+        "Thanh tra An ninh – Công ty Bảo vệ Vincom (2016–2018)"
+      ],
+      educationTitle: "Trình độ học vấn",
+      education: [
+        "Cử nhân Khoa học Quân sự – Trường Sĩ quan Đặc công (Hệ Đại học Chính quy)",
+        "Chuyên ngành: Chỉ huy đơn vị đặc công",
+        "Xếp loại: Khá"
+      ],
+      achievementTitle: "Thành tích",
+      achievements: [
+        "Bằng khen hàng năm từ Tập đoàn VinGroup",
+        "Danh hiệu “Chiến binh” – Tập đoàn CT",
+        "Nhiều chứng chỉ chuyên môn về an ninh và phòng cháy chữa cháy",
+        "Được tin tưởng giao lập kế hoạch & triển khai an ninh cho các dự án/sự kiện lớn"
+      ],
+      objectiveTitle: "Mục tiêu nghề nghiệp",
+      objectives: [
+        "Gắn bó lâu dài trong môi trường chuyên nghiệp",
+        "Đảm nhận các vị trí quản lý cấp cao trong lĩnh vực an ninh nội bộ",
+        "Trở thành nhà quản lý an ninh hàng đầu tại các tập đoàn lớn"
+      ],
+      downloadText: "Tải CV",
+      downloadNote: "Mẹo: đổi ngôn ngữ để tải đúng file PDF tương ứng.",
+      downloadFile: "Tran_Kim_Dinh_CV_VI.pdf"
     }
-};
+  };
 
-function setLanguage(lang) {
-    document.getElementById("name").textContent = content[lang].name;
-    document.getElementById("title").textContent = content[lang].title;
-    document.getElementById("personal-title").textContent = content[lang].personalTitle;
-    document.getElementById("skills-title").textContent = content[lang].skillsTitle;
-    document.getElementById("experience-title").textContent = content[lang].experienceTitle;
-    document.getElementById("education-title").textContent = content[lang].educationTitle;
-    document.getElementById("achievement-title").textContent = content[lang].achievementTitle;
-    document.getElementById("objective-title").textContent = content[lang].objectiveTitle;
-
-    setList("personal-info", content[lang].personalInfo);
-    setList("skills-list", content[lang].skills);
-    setList("experience-list", content[lang].experience);
-    setList("education-list", content[lang].education);
-    setList("achievement-list", content[lang].achievements);
-    setList("objective-list", content[lang].objectives);
-
-    document.getElementById("download-link").textContent = content[lang].downloadText;
-    document.getElementById("download-link").href = content[lang].downloadFile;
-}
-
-function setList(id, items) {
-    const list = document.getElementById(id);
-    list.innerHTML = "";
-    items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
+  // ====== Render helpers ======
+  function setList(id, items){
+    const ul = document.getElementById(id);
+    ul.innerHTML = "";
+    items.forEach(t=>{
+      const li=document.createElement("li");
+      li.textContent=t;
+      ul.appendChild(li);
     });
-}
+  }
 
-// Mặc định hiển thị tiếng Anh
-setLanguage('en');
+  function setLanguage(lang){
+    const c = content[lang];
+    document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
+    document.getElementById("name").textContent = c.name;
+    document.getElementById("title").textContent = c.title;
+
+    document.getElementById("personal-title").textContent = c.personalTitle;
+    setList("personal-info", c.personalInfo);
+
+    document.getElementById("skills-title").textContent = c.skillsTitle;
+    setList("skills-list", c.skills);
+
+    document.getElementById("experience-title").textContent = c.experienceTitle;
+    setList("experience-list", c.experience);
+
+    document.getElementById("education-title").textContent = c.educationTitle;
+    setList("education-list", c.education);
+
+    document.getElementById("achievement-title").textContent = c.achievementTitle;
+    setList("achievement-list", c.achievements);
+
+    document.getElementById("objective-title").textContent = c.objectiveTitle;
+    setList("objective-list", c.objectives);
+
+    const a = document.getElementById("download-link");
+    a.textContent = c.downloadText;
+    a.href = c.downloadFile;
+    document.getElementById("download-note").textContent = c.downloadNote;
+
+    // small active state for flags
+    document.getElementById('btn-en').style.outline = lang==='en' ? '2px solid #2563eb' : 'none';
+    document.getElementById('btn-vi').style.outline = lang==='vi' ? '2px solid #2563eb' : 'none';
+  }
+
+  // Default EN on load
+  setLanguage('en');
 </script>
-
 </body>
 </html>
