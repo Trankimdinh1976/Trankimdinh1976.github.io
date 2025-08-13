@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tran Kim Dinh - CV</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f4f4;
+        color: #333;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        background: white;
+        display: flex;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .sidebar {
+        background: #1e3d59;
+        color: white;
+        padding: 20px;
+        width: 30%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .sidebar img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+    .sidebar h1 {
+        margin: 10px 0 5px;
+        font-size: 22px;
+    }
+    .sidebar p {
+        margin: 0 0 20px;
+        font-style: italic;
+    }
+    .sidebar h2 {
+        font-size: 18px;
+        margin-top: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 5px;
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+    .sidebar ul li {
+        margin-bottom: 8px;
+    }
+    .main {
+        padding: 20px;
+        width: 70%;
+        box-sizing: border-box;
+    }
+    .main h2 {
+        color: #1e3d59;
+        margin-top: 0;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+    }
+    .lang-switch {
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    .lang-switch button {
+        font-size: 20px;
+        margin-left: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    .download-btn {
+        display: inline-block;
+        background: #ff6e40;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 15px;
+    }
+    .download-btn:hover {
+        background: #ff3d00;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="avatar.jpg" alt="Avatar">
+        <h1 id="name">Tran Kim Dinh</h1>
+        <p id="title">Security Management Expert</p>
+        
+        <h2 id="personal-title">Personal Information</h2>
+        <ul id="personal-info"></ul>
+
+        <h2 id="skills-title">Key Skills</h2>
+        <ul id="skills-list"></ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+        <div class="lang-switch">
+            <button onclick="setLanguage('en')">🇬🇧</button>
+            <button onclick="setLanguage('vi')">🇻🇳</button>
+        </div>
+
+        <h2 id="experience-title">Work Experience</h2>
+        <ul id="experience-list"></ul>
+
+        <h2 id="education-title">Education</h2>
+        <ul id="education-list"></ul>
+
+        <h2 id="achievement-title">Achievements</h2>
+        <ul id="achievement-list"></ul>
+
+        <h2 id="objective-title">Career Objectives</h2>
+        <ul id="objective-list"></ul>
+
+        <a id="download-link" class="download-btn" href="Tran_Kim_Dinh_CV_EN.pdf" download>Download CV</a>
+    </div>
+</div>
+
+<script>
+const content = {
+    en: {
+        name: "Tran Kim Dinh",
+        title: "Security Management Expert",
+        personalTitle: "Personal Information",
+        personalInfo: [
+            "Date of Birth: August 27, 1976",
+            "Address: 506 Truong Chinh, Nhon Hung Ward, An Nhon Town, Binh Dinh Province, Vietnam",
+            "Phone: 0938.466245",
+            "Email: Trankimdinh1976@gmail.com"
+        ],
+        skillsTitle: "Key Skills",
+        skills: [
+            "Internal security & risk management",
+            "Security inspections & investigations",
+            "Personnel management & training",
+            "Microsoft Office (Word, Excel, PowerPoint)",
+            "Liaison with governmental authorities"
+        ],
+        experienceTitle: "Work Experience",
+        experience: [
+            "Military Service (1994–2016): Officer in charge of operational command in Military Zone 5 & 7.",
+            "Security Director – CT Group, Chairman & CEO of STEEL STAR Security Service JSC (2023–2025)",
+            "Security Advisor – Thien Thanh Group (2023–2025)",
+            "Security Director – Van Phuc Group (2022–2023)",
+            "Head of Security – Dat Xanh Group (2022)",
+            "Head of Security – Vinhomes Grand Park (2020–2022)",
+            "Head of Security – Vinhomes Golden River (2019)",
+            "Security Team Leader – Vinhomes Central Park (2018–2019)",
+            "Security Inspector – Vincom Security Company (2016–2018)"
+        ],
+        educationTitle: "Education",
+        education: [
+            "Bachelor of Military Science – Commando Officer School (Regular University)",
+            "Major: Commando Unit Command",
+            "Classification: Good"
+        ],
+        achievementTitle: "Achievements",
+        achievements: [
+            "Annual commendations from VinGroup",
+            "Warrior title – CT Group",
+            "Multiple professional security & firefighting certificates",
+            "Trusted with security planning & execution for major projects/events"
+        ],
+        objectiveTitle: "Career Objectives",
+        objectives: [
+            "Long-term commitment in a professional environment",
+            "Hold senior management roles in internal security",
+            "Become a top security manager in major corporations"
+        ],
+        downloadText: "Download CV",
+        downloadFile: "Tran_Kim_Dinh_CV_EN.pdf"
+    },
+    vi: {
+        name: "Trần Kim Định",
+        title: "Chuyên gia Quản lý An ninh",
+        personalTitle: "Thông tin cá nhân",
+        personalInfo: [
+            "Ngày sinh: 27/08/1976",
+            "Địa chỉ: 506 Trường Chinh, phường Nhơn Hưng, thị xã An Nhơn, tỉnh Bình Định, Việt Nam",
+            "Điện thoại: 0938.466245",
+            "Email: Trankimdinh1976@gmail.com"
+        ],
+        skillsTitle: "Kỹ năng chính",
+        skills: [
+            "Quản lý an ninh nội bộ & quản trị rủi ro",
+            "Thanh tra & điều tra an ninh",
+            "Quản lý & huấn luyện nhân sự",
+            "Sử dụng Microsoft Office (Word, Excel, PowerPoint)",
+            "Liên hệ, phối hợp với cơ quan chức năng"
+        ],
+        experienceTitle: "Kinh nghiệm làm việc",
+        experience: [
+            "Quân ngũ (1994–2016): Sĩ quan phụ trách chỉ huy tác chiến tại Quân khu 5 & 7.",
+            "Giám đốc An ninh – Tập đoàn CT, Chủ tịch & CEO Công ty CP Dịch vụ Bảo vệ STEEL STAR (2023–2025)",
+            "Cố vấn An ninh – Tập đoàn Thiên Thanh (2023–2025)",
+            "Giám đốc An ninh – Tập đoàn Vạn Phúc (2022–2023)",
+            "Trưởng bộ phận An ninh – Tập đoàn Đất Xanh (2022)",
+            "Trưởng bộ phận An ninh – Vinhomes Grand Park (2020–2022)",
+            "Trưởng bộ phận An ninh – Vinhomes Golden River (2019)",
+            "Đội trưởng An ninh – Vinhomes Central Park (2018–2019)",
+            "Thanh tra An ninh – Công ty Bảo vệ Vincom (2016–2018)"
+        ],
+        educationTitle: "Trình độ học vấn",
+        education: [
+            "Cử nhân Khoa học Quân sự – Trường Sĩ quan Đặc công (Hệ Đại học Chính quy)",
+            "Chuyên ngành: Chỉ huy đơn vị đặc công",
+            "Xếp loại: Khá"
+        ],
+        achievementTitle: "Thành tích",
+        achievements: [
+            "Bằng khen hàng năm từ Tập đoàn VinGroup",
+            "Danh hiệu “Chiến binh” – Tập đoàn CT",
+            "Nhiều chứng chỉ chuyên môn về an ninh và phòng cháy chữa cháy",
+            "Được tin tưởng giao lập kế hoạch & triển khai an ninh cho các dự án/sự kiện lớn"
+        ],
+        objectiveTitle: "Mục tiêu nghề nghiệp",
+        objectives: [
+            "Gắn bó lâu dài trong môi trường chuyên nghiệp",
+            "Đảm nhận các vị trí quản lý cấp cao trong lĩnh vực an ninh nội bộ",
+            "Trở thành nhà quản lý an ninh hàng đầu tại các tập đoàn lớn"
+        ],
+        downloadText: "Tải CV",
+        downloadFile: "Tran_Kim_Dinh_CV_VI.pdf"
+    }
+};
+
+function setLanguage(lang) {
+    document.getElementById("name").textContent = content[lang].name;
+    document.getElementById("title").textContent = content[lang].title;
+    document.getElementById("personal-title").textContent = content[lang].personalTitle;
+    document.getElementById("skills-title").textContent = content[lang].skillsTitle;
+    document.getElementById("experience-title").textContent = content[lang].experienceTitle;
+    document.getElementById("education-title").textContent = content[lang].educationTitle;
+    document.getElementById("achievement-title").textContent = content[lang].achievementTitle;
+    document.getElementById("objective-title").textContent = content[lang].objectiveTitle;
+
+    setList("personal-info", content[lang].personalInfo);
+    setList("skills-list", content[lang].skills);
+    setList("experience-list", content[lang].experience);
+    setList("education-list", content[lang].education);
+    setList("achievement-list", content[lang].achievements);
+    setList("objective-list", content[lang].objectives);
+
+    document.getElementById("download-link").textContent = content[lang].downloadText;
+    document.getElementById("download-link").href = content[lang].downloadFile;
+}
+
+function setList(id, items) {
+    const list = document.getElementById(id);
+    list.innerHTML = "";
+    items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+}
+
+// Mặc định hiển thị tiếng Anh
+setLanguage('en');
+</script>
+
+</body>
+</html>
