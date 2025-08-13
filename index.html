@@ -19,6 +19,7 @@
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        position: relative;
     }
     .sidebar {
         background: #1e3d59;
@@ -71,15 +72,17 @@
         padding-bottom: 5px;
     }
     .lang-switch {
-        text-align: right;
-        margin-bottom: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 10px;
     }
-    .lang-switch button {
-        font-size: 20px;
-        margin-left: 5px;
+    .lang-switch img {
+        width: 30px;
+        height: 20px;
         cursor: pointer;
-        background: none;
-        border: none;
+        border: 1px solid #ccc;
     }
     .download-btn {
         display: inline-block;
@@ -114,8 +117,8 @@
     <!-- Main content -->
     <div class="main">
         <div class="lang-switch">
-            <button onclick="setLanguage('en')">🇬🇧</button>
-            <button onclick="setLanguage('vi')">🇻🇳</button>
+            <img src="flag_en.png" alt="English" onclick="setLanguage('en')">
+            <img src="flag_vi.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
         </div>
 
         <h2 id="experience-title">Work Experience</h2>
